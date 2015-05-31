@@ -213,7 +213,8 @@ public class MainActivity extends Activity {
 		baseApi.setDebug(true);
 		baseApi.init(DATA_PATH, lang);
 		baseApi.setImage(bitmap);
-		
+        baseApi.setVariable("user_words_suffix", "user-words");
+
 		String recognizedText = baseApi.getUTF8Text();
 		
 		baseApi.end();
@@ -223,22 +224,34 @@ public class MainActivity extends Activity {
 		// so that garbage doesn't make it to the display.
 
 		Log.v(TAG, "OCRED TEXT: " + recognizedText);
-		Log.v(TAG, "OCRED TEXT length: " + recognizedText.length());
 
 		if ( lang.equalsIgnoreCase("eng") ) {
 			recognizedText = recognizedText.replaceAll("[^a-zA-Z0-9]+", " ");
 		}
-		
+
 		recognizedText = recognizedText.trim();
 
 		if ( recognizedText.length() != 0 ) {
 			_field.setText(_field.getText().toString().length() == 0 ? recognizedText : _field.getText() + " " + recognizedText);
 			_field.setSelection(_field.getText().toString().length());
 		}
-		
-		// Cycle done.
+
+        // RetrieveMenu
+        // get the text
+        // - preprocessing of the bitmap image
+        // - postprocessing of the text -> MenuItem (string -> description, image, nutrition)
+
+        // MenuResults
+        // - all available MenuItems
+        // - list of buttons
+
+        // ResultPage
+        // - display the stuff
+
+        // UI stuff
+
+//        Intent next = new Intent(this, MenuResults.class);
+//        next.putExtra("menuText", recognizedText);
+//        this.startActivity(next);
 	}
-	
-	// www.Gaut.am was here
-	// Thanks for reading!
 }
