@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/david/Development/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-015c2fd64b6598a48415c78a0cd507a2adf13b5e.jar" />
+    </item>
+    <item
+        jar="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/pre-dexed/debug/classes-3c9f146a46e838c32743290ecb08dee56ff922eb.jar" />
+    </item>
+    <item
+        jar="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/exploded-aar/HelpMenuApp/tess-two/unspecified/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3fc53e84134866fae04a00200789311fe953b132">
+        <dex dex="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/pre-dexed/debug/classes-4e9d2ad247e4870f7544233eacf3cea3566d9d40.jar" />
+    </item>
+    <item
+        jar="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/pre-dexed/debug/classes-f6187b3a0a16930ccdbb0041385354e88590c5a1.jar" />
+    </item>
+    <item
+        jar="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/david/Downloads/HelpMenuApp/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-4629c42d44eab17702093f4859961fede60aa6d1.jar" />
+    </item>
+
+</items>
