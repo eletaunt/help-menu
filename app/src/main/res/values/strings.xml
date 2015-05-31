@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, DatumDroidOCRActivity!</string>
-    <string name="app_name">Simple Android OCR</string>
+    <string name="hello">Welcome to HelpMenu!</string>
+    <string name="app_name">HelpMenu</string>
     <string name="button_text">OCR!</string>
     <string name="text_hint">OCRed Text will appear here</string>
-    <string name="action_settings">Action settings</string>
-    <string name="title_activity_menu_results">MenuResults</string>
+    <string name="action_settings">Settings</string>
+    <string name="output_text">Output</string>
+    <string name="title_activity_display_options">DisplayOptions</string>
+    <string name="image_dialog_description">Image Preview</string>
+    <string name="title_activity_results">Results</string>
+    <string name="results">Results will appear here</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_menu_results">Hawefewf</string>
 
 </resources>
