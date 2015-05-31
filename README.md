@@ -15,5 +15,5 @@ Here is a [basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHT
 
 ## Resources
 * [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
-* [Making OCR app with Tesserect](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
-* [Improving Tesserect](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality)
+* [Making OCR app with Tesseract](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
+* [Improving Tesseract](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality)
