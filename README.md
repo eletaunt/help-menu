@@ -1,4 +1,4 @@
-# Mobile Menu Enhancer - A Mobile Computing project
+# HelpMenu - A Mobile Computing project
 
 ## About
 
