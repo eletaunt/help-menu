@@ -9,6 +9,10 @@ Here are links below for working collaboratively:
 * [CodeShare](http://codeshare.io/yY68N) - For code
 * [Google Slide](https://docs.google.com/presentation/d/1vn_FBWc3WaTStfs7Aj41D0ZsQemE-G5B8xW2dnbY984/edit?usp=sharing) - For presentation
 
+## Basic OCR App
+
+Here is a [basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHTmd5b2c/view?usp=sharing), that allows you to take a picture and it will return the text to you. This was created by using the resources below. Unfortunately, the OCR does not seem to work properly, as the returned letters are very inaccurate.
+
 ## Resources
 * [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
 * [Making OCR app with tesserect](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
