@@ -12,13 +12,13 @@ import edu.uchicago.cs234.spr15.limt.helpmenuapp.Tools;
  * Created by limt on 5/31/2015.
  */
 public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
+    public AsyncResponse listener;
 
     static final String TAG = "DBG_" + TessAsyncEngine.class.getName();
 
     private Bitmap bmp;
 
     private Activity context;
-
 
     @Override
     protected String doInBackground(Object... params) {
@@ -64,6 +64,8 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
 
             Log.d(TAG, result);
 
+            MainActivity.recognizedText = result; // set string
+
             return result;
 
         } catch (Exception ex) {
@@ -73,18 +75,33 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         return null;
     }
 
+    public TessAsyncEngine(AsyncResponse listener){
+        this.listener = listener;
+    }
+
     @Override
-    protected void onPostExecute(String s) {
-
-        if(s == null || bmp == null || context == null)
+    protected void onPostExecute(String result) {
+        if (result == null || bmp == null || context == null) {
+            Log.d(TAG, "Output/bmp/context is null!");
             return;
+        }
 
-        ImageDialog.New()
-                .addBitmap(bmp)
-                .addTitle(s)
-                .show(context.getFragmentManager(), TAG);
+        if (listener == null) {
+            Log.d(TAG, "listener is null");
+        }
 
-        super.onPostExecute(s);
+
+        String output = result;
+        Log.d(TAG, "About to run processFinish");
+        listener.processFinish(output);
+        Log.d(TAG, "Done running processFinish");
+
+//      ImageDialog.New()
+//          .addBitmap(bmp)
+//          .addTitle(s)
+//          .show(context.getFragmentManager(), TAG);
+//      super.onPostExecute(output);
+
     }
 }
 

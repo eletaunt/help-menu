@@ -54,7 +54,6 @@ public class MenuResults extends Activity
 
         testText.setText(displayText);
         origText.setText(menuText);
-
     }
 
     // ------------------------

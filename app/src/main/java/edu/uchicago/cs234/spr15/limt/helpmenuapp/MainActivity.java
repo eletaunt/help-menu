@@ -37,9 +37,11 @@ import edu.uchicago.cs234.spr15.limt.helpmenuapp.TessAsyncEngine;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 public class MainActivity extends Activity implements SurfaceHolder.Callback, View.OnClickListener,
-        Camera.PictureCallback, Camera.ShutterCallback {
+        Camera.PictureCallback, Camera.ShutterCallback, AsyncResponse {
 
     static final String TAG = "DBG_" + MainActivity.class.getName();
+
+    static public String recognizedText;
 
     Button shutterButton;
     Button focusButton;
@@ -47,10 +49,14 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
     SurfaceView cameraFrame;
     CameraEngine cameraEngine;
 
+    AsyncResponse listener;
+    TessAsyncEngine asyncTask = new TessAsyncEngine(listener);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        listener = this;
     }
 
     @Override
@@ -119,14 +125,17 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
 
     @Override
     public void onClick(View v) {
-        if(v == shutterButton){
-            if(cameraEngine != null && cameraEngine.isOn()){
+        if (v == shutterButton) {
+            if(cameraEngine != null && cameraEngine.isOn()) {
                 cameraEngine.takeShot(this, this, this);
             }
+            Intent next = new Intent(this, MenuResults.class);
+            next.putExtra("menuText", recognizedText);
+            //this.startActivity(next);
         }
 
-        if(v == focusButton){
-            if(cameraEngine!=null && cameraEngine.isOn()){
+        if (v == focusButton) {
+            if(cameraEngine!=null && cameraEngine.isOn()) {
                 cameraEngine.requestFocus();
             }
         }
@@ -148,7 +157,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
 
         Log.d(TAG, "Initialization of TessBaseApi");
 
-        new TessAsyncEngine().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, this, bmp);
+        new TessAsyncEngine(listener).executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, this, bmp);
 
     }
 
@@ -156,4 +165,15 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
     public void onShutter() {
 
     }
+
+    public void processFinish(String result){
+        Log.d(TAG, "Entered processFinish");
+        Log.d(TAG, "Output: " + result);
+
+        // Open MenuResults with OCRed string
+        Intent next = new Intent(this, MenuResults.class);
+        next.putExtra("menuText", result);
+        this.startActivity(next);
+    }
+
 }
