@@ -18,6 +18,11 @@ Here are links to our past writeups:
 * [Tesserect](https://code.google.com/p/tesseract-ocr/) - An OCR library
 * [Leptonica](http://leptonica.com/) - An image processing library
 * Some nutritional database
+  * [FatSecret](http://platform.fatsecret.com/api/)
+  * [Nutritionix](http://www.nutritionix.com/api)
+  * [Nutribu](http://developer.nutribu.com/)
+  * [University of Minnesota Food Database](http://www.ncc.umn.edu/products/databasefaqs.html)
+  * [Open Food Facts](http://world.openfoodfacts.org/data)
 
 ## Resources
 * [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
