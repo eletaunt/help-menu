@@ -2,6 +2,9 @@ package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,8 +47,18 @@ public class MenuResults extends Activity {
 
         double test = getJaroWinklerDistance("mono maki chicken", "mono maki beef");
 
-        testText.setText(String.valueOf(test));
-        origText.setText(_menuText);
+        testText.setText("Test: " + String.valueOf(test));
+        origText.setText("OCR: " + _menuText);
+
+        // Dynamically generate buttons based on substrings (only the first 10)
+        int totalOptions = substrings.size();
+        Button[] myButton = new Button[totalOptions];
+        LinearLayout menuLayout = (LinearLayout) findViewById(R.id.menuLayout);
+        for(int i = 0; i < totalOptions; i++){
+            myButton[i] = new Button(this); //initialize the button here
+            myButton[i].setText(substrings.get(i));//null ptr exception error
+            menuLayout.addView(myButton[i]);
+        }
 
     }
 

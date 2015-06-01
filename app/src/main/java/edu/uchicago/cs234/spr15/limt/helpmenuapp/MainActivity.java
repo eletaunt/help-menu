@@ -170,6 +170,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
         Log.d(TAG, "Entered processFinish");
         Log.d(TAG, "Output: " + result);
 
+        // Open MenuResults with OCRed string
         Intent next = new Intent(this, MenuResults.class);
         next.putExtra("menuText", result);
         this.startActivity(next);
