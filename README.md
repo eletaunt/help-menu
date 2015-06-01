@@ -13,6 +13,12 @@ Here are links below for working collaboratively:
 
 Here is a [basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHTmd5b2c/view?usp=sharing), that allows you to take a picture and it will return the text to you. This was created by using the resources below. Unfortunately, the OCR does not seem to work properly, as the returned letters are very inaccurate.
 
+## Libraries and other things
+
+* [Tesserect](https://code.google.com/p/tesseract-ocr/) - An OCR library
+* [Leptonica](http://leptonica.com/) - An image processing library
+* Some nutritional database
+
 ## Resources
 * [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
 * [Making OCR app with Tesseract](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
