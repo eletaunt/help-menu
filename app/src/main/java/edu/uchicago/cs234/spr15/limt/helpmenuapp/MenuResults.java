@@ -1,8 +1,10 @@
 package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +24,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 
 
-public class MenuResults extends Activity
+public class MenuResults extends Activity implements View.OnClickListener
 {
     private String TAG = "MenuResults";
 
@@ -45,25 +47,32 @@ public class MenuResults extends Activity
 
         ArrayList<Pair> menuItemPairs = getMenuItemNames(menuText, 10);
 
-//        String displayText = "";
-//        for (Pair p : menuItemPairs)
-//        {
-//            displayText += "(" + p.getLeft() + ", " + p.getRight() + ")";
-//            displayText += "\n";
-//        }
-
         int numItems = menuItemPairs.size();
         ArrayList<Button> menuItems = new ArrayList<Button>();
         for(int i = 0; i < numItems; i++)
         {
             Button curr = new Button(this);
             Pair thisPair = menuItemPairs.get(i);
-            curr.setText((String) thisPair.getLeft() + " : " + String.valueOf(thisPair.getRight()));
+            curr.setText((String) thisPair.getLeft()/* + " : " + String.valueOf(thisPair.getRight())*/);
+            curr.setOnClickListener(this);
             resultsLayout.addView(curr);
             menuItems.add(curr);
         }
 
-        inputText.setText("<< received text >>" + "'" + menuText + "'");
+        inputText.setText("<< received text >>" + "\n'" + menuText + "'");
+    }
+
+    // -------
+    // onClick : view -> void
+    // handles selection of a menu result item
+    @Override
+    public void onClick(View view)
+    {
+        Button b = (Button) view;
+        String query = b.getText().toString();
+        Intent intent = new Intent(this, MenuResultQuery.class);
+        intent.putExtra("query", query);
+        this.startActivity(intent);
     }
 
     // ------------------------
