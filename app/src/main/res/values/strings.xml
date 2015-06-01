@@ -14,5 +14,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_menu_results">MenuResults</string>
+    <string name="title_activity_menu_result_query">MenuResultQuery</string>
 
 </resources>
