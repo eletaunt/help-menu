@@ -31,7 +31,7 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
         String query  = _name;
         String rawURL = "http://api.nal.usda.gov/usda/ndb/search/" +
                         "?format=" +    "json" +
-                        "&q=" +         "banana" +
+                        "&q=" +         query.replace(" ", "%20") +
                         "&sort=" +      "r" +
                         "&max=" +       "1" +
                         "&offset=" +    "0" +
