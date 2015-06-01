@@ -2,8 +2,10 @@ package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -54,7 +56,10 @@ public class MenuResults extends Activity implements View.OnClickListener
             Button curr = new Button(this);
             Pair thisPair = menuItemPairs.get(i);
             curr.setText((String) thisPair.getLeft());
+            curr.setTextColor(Color.WHITE);
+            curr.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
             curr.setOnClickListener(this);
+            curr.setBackgroundResource(R.drawable.button_style);
             resultsLayout.addView(curr);
             menuItems.add(curr);
         }
@@ -128,7 +133,7 @@ public class MenuResults extends Activity implements View.OnClickListener
 
     // ------------------------
     // getPossibleMenuItemNames : void -> ArrayList<String>
-    // retrieves possible menu item names from raw/items.txxt
+    // retrieves possible menu item names from raw/items.txt
     private ArrayList<String> getPossibleMenuItemNames()
     {
         ArrayList<String> result = new ArrayList<String>();
