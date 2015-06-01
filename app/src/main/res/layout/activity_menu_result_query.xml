@@ -25,15 +25,20 @@
         android:layout_below="@+id/name"
         android:layout_marginTop="20dp"
         style="@style/BackgroundColor2" >
-        <TextView
+        <TableLayout
+            android:layout_margin="8dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/random"
-            android:layout_below="@+id/name"
-            android:layout_toRightOf="@+id/name"
-            android:layout_toEndOf="@+id/name"
-            style="@style/TextViewStyle" />
+            android:id="@+id/table"
+            ></TableLayout>
+        <!--<LinearLayout-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/infoLayout"-->
+            <!--android:layout_below="@+id/MenuResultsTitle"-->
+            <!--/>-->
     </ScrollView>
 
 </RelativeLayout>

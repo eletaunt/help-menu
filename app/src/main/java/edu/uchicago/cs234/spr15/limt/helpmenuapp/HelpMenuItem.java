@@ -2,7 +2,13 @@ package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -11,6 +17,7 @@ import org.json.JSONObject;
 
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
 {
@@ -39,8 +46,6 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
 
         String rawJSONString = getRawJSONString(rawURL);
 
-        Log.v("asdoifjaoiwjfawef--->", rawJSONString);
-
         JSONObject j = null;
         try
         {
@@ -52,42 +57,6 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
         }
 
         return j;
-//
-//        try
-//        {
-//            JSONObject json = new JSONObject(rawJSONString);
-//        }
-//        catch (JSONException e)
-//        {
-//            e.printStackTrace();
-//        }
-//
-//        JSONObject json = new JSONObject();
-//        try
-//        {
-//            URL url = new URL(rawURL);
-//            URLConnection c = url.openConnection();
-//            BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
-//
-//            String line;
-//
-//            while ((line = in.readLine()) != null)
-//            {
-//                rawJSONString += line;
-//            }
-//            in.close();
-//
-//            json = new JSONObject(rawJSONString);
-//            json = new JSONObject(json.getString("list"));
-//            JSONArray j = new JSONArray(json.getString("item"));
-//            json = j.getJSONObject(0);
-//        }
-//        catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//
-//        return json;
     }
 
     private JSONObject getNDBDescription(JSONObject json)
@@ -156,16 +125,50 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
     protected void onPostExecute(JSONObject j)
     {
         TextView name = (TextView) _act.findViewById(R.id.name);
-        TextView random = (TextView) _act.findViewById(R.id.random);
+
+        TableLayout infoLayout = (TableLayout) _act.findViewById(R.id.table);
+        ArrayList<TextView> infoItems = new ArrayList<TextView>();
+
         name.setText(_name);
         try
         {
-            random.setText(j.toString(4));
+            JSONObject n = new JSONObject(j.getString("report"));
+            n = new JSONObject(n.getString("food"));
+
+            String resultName = n.getString("name");
+            TextView resultNameT = new TextView(_act);
+            resultNameT.setText(Html.fromHtml("<b>" + resultName + "</b>"));
+            infoLayout.addView(resultNameT);
+
+            JSONArray a = new JSONArray(n.getString("nutrients"));
+
+            int numObjects = a.length();
+            for (int i = 0; i < numObjects; i++)
+            {
+                JSONObject curr = new JSONObject(a.getString(i));
+
+                TableRow tr =  new TableRow(_act);
+
+                if (i % 2 == 0)
+                    tr.setBackgroundResource(R.color.blue);
+
+                TextView c1 = new TextView(_act);
+                c1.setGravity(Gravity.CENTER);
+                c1.setText(curr.getString("name"));
+
+                TextView c2 = new TextView(_act);
+                c2.setGravity(Gravity.CENTER);
+                c2.setText(curr.getString("value") + " " + curr.getString("unit"));
+
+                tr.addView(c1);
+                tr.addView(c2);
+
+                infoLayout.addView(tr);
+            }
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            random.setText("Unfortunately, we could not find any details for '" + _name + "'.");
         }
     }
 }
