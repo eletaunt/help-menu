@@ -2,70 +2,73 @@ package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Hashtable;
+import java.util.Iterator;
 
-import static org.apache.commons.lang3.StringUtils.getJaroWinklerDistance;
 
-public class MenuResults extends Activity {
+public class MenuResults extends Activity
+{
+    private String TAG = "MenuResults";
 
-    private String _menuText;
 
+    // --------
+    // onCreate : savedInstanceState -> void
+    // called when Activity is created
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-//        Intent next = new Intent(this, MenuResults.class);
-//        next.putExtra("menuText", recognizedText);
-//        this.startActivity(next);
-
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_results);
 
         Bundle hashmap = this.getIntent().getExtras();
 
-        if (hashmap == null)
-        {
-            _menuText = "Spider Maki (5pcs)";
-        }
-        else
-        {
-            _menuText = hashmap.getString("menuText");
-        }
+        //String menuText = hashmap.getString("menuText");
+        String menuText = "Spider Maki (5pcs) California Maki (5pcs) Beef Maki (5pcs) awejoifwef ajweawjef aiowejfawoefawefoa wiejfaweofawe";
+        menuText = menuText.toLowerCase();
 
-        // retrieve components
         TextView testText = (TextView) this.findViewById(R.id.testText);
         TextView origText = (TextView) this.findViewById(R.id.origText);
 
-        String displayText = new String();
+        ArrayList<Pair> substrings = getMenuItemNames(menuText, 5);
 
-        ArrayList<String> substrings = getPossibleMenuItemNames(_menuText);
-        for (String s : substrings)
+        String displayText = "";
+        for (Pair p : substrings)
         {
-            displayText += " ";
-            displayText += s;
+            displayText += "(" + p.getLeft() + ", " + p.getRight() + ")";
+            displayText += "\n";
         }
 
-        double test = getJaroWinklerDistance("mono maki chicken", "mono maki beef");
-
-        testText.setText(String.valueOf(test));
-        origText.setText(_menuText);
+        testText.setText(displayText);
+        origText.setText(menuText);
 
     }
 
-    // getPossibleMenuItemNames
-    // inputs : string s
-    // return : possible menu item names from _s_
-    private ArrayList<String> getPossibleMenuItemNames(String s)
+    // ------------------------
+    // getPotentialMenuItemNames : String -> ArrayList<String>
+    // returns possible menu item names from raw menu text as an ArrayList<String>
+    private ArrayList<String> getPotentialMenuItemNames(String s)
     {
-        //
         //
         return getSubstrings(s, 4);
     }
 
-    // getSubstringOfLen
-    // inputs : string s, int len
-    // return : all substrings of length _len_ from _s_
+    // -----------------
+    // getSubstringOfLen : (String, int) -> ArrayList<String>
+    // returns a list of all substrings of a given length
     private ArrayList<String> getSubstringsOfLen(String s, int len)
     {
         int fst = 0;
@@ -84,9 +87,9 @@ public class MenuResults extends Activity {
         return result;
     }
 
-    // getSubstrings
-    // inputs : string s, int min
-    // return : all substrings of any length from _s_ with minimum length _min_
+    // -------------
+    // getSubstrings : (String, int) -> ArrayList<String>
+    // returns a list of all substrings with some minimum length
     private ArrayList<String> getSubstrings(String s, int min)
     {
         ArrayList<String> result = new ArrayList<String>();
@@ -105,10 +108,110 @@ public class MenuResults extends Activity {
         return result;
     }
 
-    private ArrayList<String> getMenuItemNames()
+    // ------------------------
+    // getPossibleMenuItemNames : void -> ArrayList<String>
+    // retrieves possible menu item names from raw/items.txxt
+    private ArrayList<String> getPossibleMenuItemNames()
     {
-        // TODO
+        ArrayList<String> result = new ArrayList<String>();
 
-        return null;
+        try
+        {
+            InputStream itemsStream = getResources().openRawResource(R.raw.items);
+            InputStreamReader itemsReader_ = new InputStreamReader(itemsStream);
+            BufferedReader itemsReader = new BufferedReader(itemsReader_);
+
+            String line = itemsReader.readLine();
+
+            while (line != null)
+            {
+                result.add(line);
+                line = itemsReader.readLine();
+            }
+
+            try
+            {
+                itemsStream.close();
+                itemsReader_.close();
+                itemsReader.close();
+            }
+            catch (IOException ex)
+            {
+                Log.d(TAG, "IOException");
+            }
+
+        }
+        catch (FileNotFoundException ex)
+        {
+            Log.d(TAG, "FileNotFoundException");
+        }
+        catch (IOException ex)
+        {
+            Log.d(TAG, "IOException");
+        }
+
+        return result;
+    }
+
+    // _______
+    // removeDuplicatePairs : ArrayList<Pair> -> ArrayList<Pair>
+    // removes duplicates based on value of left element
+    private ArrayList<Pair> removeDuplicatePairs(ArrayList<Pair> pairs)
+    {
+        Iterator<Pair> iter = pairs.iterator();
+        Hashtable<String, Boolean> seen = new Hashtable<String, Boolean>();
+
+        while (iter.hasNext())
+        {
+            Pair curr = iter.next();
+            String key = (String) curr.getLeft();
+            if (seen.get(key) != null)
+            {
+                iter.remove();
+            }
+            else
+            {
+                seen.put((String) curr.getLeft(), true);
+            }
+        }
+
+        return pairs;
+    }
+
+    // ----------------
+    // getMenuItemNames : (String, int) -> ArrayList<Pair>
+    // returns the top matched menu item names
+    private ArrayList<Pair> getMenuItemNames(String menuText, int n)
+    {
+        ArrayList<String> possible = getPossibleMenuItemNames();
+        ArrayList<String> potential = getPotentialMenuItemNames(menuText);
+
+        ArrayList<Pair> result = new ArrayList<Pair>();
+
+        for (String pot : potential)
+        {
+            for (String pos : possible)
+            {
+                double fuzziness = StringUtils.getJaroWinklerDistance(pot, pos);
+                result.add(Pair.of(pos, fuzziness));
+            }
+        }
+
+        Collections.sort(result, new Comparator<Pair>() {
+                @Override
+                public int compare(Pair p1, Pair p2) {
+                    if ((double) p1.getRight() < (double) p2.getRight()) return 1;
+                    else if ((double) p1.getRight() == (double) p2.getRight()) return 0;
+                    else return -1;
+                }
+            }
+        );
+        Log.v(TAG, String.valueOf("BEFORE: " + result.size()));
+        removeDuplicatePairs(result);
+        Log.v(TAG, String.valueOf("AFTER: " + result.size()));
+
+        return (n > result.size()) ?
+                new ArrayList<Pair>(result.subList(0, result.size())) :
+                new ArrayList<Pair>(result.subList(0, n));
     }
 }
