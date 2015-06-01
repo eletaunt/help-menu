@@ -15,10 +15,6 @@ public class MenuResults extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        Intent next = new Intent(this, MenuResults.class);
-//        next.putExtra("menuText", recognizedText);
-//        this.startActivity(next);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_results);
 

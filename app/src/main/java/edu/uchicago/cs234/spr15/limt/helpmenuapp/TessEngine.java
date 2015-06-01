@@ -13,8 +13,6 @@ public class TessEngine {
 
     static final String TAG = "DBG_" + TessEngine.class.getName();
 
-    private String output;
-
     private Context context;
 
     private TessEngine(Context context){
@@ -36,16 +34,11 @@ public class TessEngine {
         Log.d(TAG, "Ended initialization of TessEngine");
         Log.d(TAG, "Running inspection on bitmap");
         tessBaseAPI.setImage(bitmap);
-        output = tessBaseAPI.getUTF8Text();
+        String output = tessBaseAPI.getUTF8Text();
         Log.d(TAG, "Got data: " + output);
         tessBaseAPI.end();
         System.gc();
         return output;
     }
-
-    public String getText() {
-        return output;
-    }
-
 }
 
