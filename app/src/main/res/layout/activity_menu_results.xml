@@ -9,19 +9,31 @@
     <TextView android:text="@string/hello_world" android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/testText"
-        android:layout_gravity="left|center"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_gravity="start|center"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
     <TextView
         android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/origText"
         android:layout_below="@+id/testText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="156dp" />
+        android:layout_width="wrap_content" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/origText">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/menuLayout"
+            android:layout_below="@+id/origText"
+            android:layout_centerHorizontal="true" />
+    </ScrollView>
+
 
 </RelativeLayout>
