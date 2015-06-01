@@ -3,6 +3,8 @@ package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +26,6 @@ public class MenuResults extends Activity
 {
     private String TAG = "MenuResults";
 
-
     // --------
     // onCreate : savedInstanceState -> void
     // called when Activity is created
@@ -36,24 +37,33 @@ public class MenuResults extends Activity
 
         Bundle hashmap = this.getIntent().getExtras();
 
-        //String menuText = hashmap.getString("menuText");
-        String menuText = "Spider Maki (5pcs) California Maki (5pcs) Beef Maki (5pcs) awejoifwef ajweawjef aiowejfawoefawefoa wiejfaweofawe";
+        String menuText = hashmap.getString("menuText");
         menuText = menuText.toLowerCase();
 
-        TextView testText = (TextView) this.findViewById(R.id.testText);
-        TextView origText = (TextView) this.findViewById(R.id.origText);
+        TextView inputText = (TextView) this.findViewById(R.id.inputText);
+        LinearLayout resultsLayout = (LinearLayout) findViewById(R.id.menuLayout);
 
-        ArrayList<Pair> substrings = getMenuItemNames(menuText, 5);
+        ArrayList<Pair> menuItemPairs = getMenuItemNames(menuText, 10);
 
-        String displayText = "";
-        for (Pair p : substrings)
+//        String displayText = "";
+//        for (Pair p : menuItemPairs)
+//        {
+//            displayText += "(" + p.getLeft() + ", " + p.getRight() + ")";
+//            displayText += "\n";
+//        }
+
+        int numItems = menuItemPairs.size();
+        ArrayList<Button> menuItems = new ArrayList<Button>();
+        for(int i = 0; i < numItems; i++)
         {
-            displayText += "(" + p.getLeft() + ", " + p.getRight() + ")";
-            displayText += "\n";
+            Button curr = new Button(this);
+            Pair thisPair = menuItemPairs.get(i);
+            curr.setText((String) thisPair.getLeft() + " : " + String.valueOf(thisPair.getRight()));
+            resultsLayout.addView(curr);
+            menuItems.add(curr);
         }
 
-        testText.setText(displayText);
-        origText.setText(menuText);
+        inputText.setText("<< received text >>" + "'" + menuText + "'");
     }
 
     // ------------------------
@@ -61,7 +71,7 @@ public class MenuResults extends Activity
     // returns possible menu item names from raw menu text as an ArrayList<String>
     private ArrayList<String> getPotentialMenuItemNames(String s)
     {
-        //
+
         return getSubstrings(s, 4);
     }
 

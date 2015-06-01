@@ -8,24 +8,18 @@
 
     <TextView android:text="@string/hello_world" android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/testText"
+        android:id="@+id/inputText"
         android:layout_gravity="start|center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="51dp" />
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_height="wrap_content"
-        android:id="@+id/origText"
-        android:layout_below="@+id/testText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content" />
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/origText">
+        android:id="@+id/scrollView">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="250dp"
