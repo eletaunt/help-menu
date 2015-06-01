@@ -53,7 +53,7 @@ public class MenuResults extends Activity implements View.OnClickListener
         {
             Button curr = new Button(this);
             Pair thisPair = menuItemPairs.get(i);
-            curr.setText((String) thisPair.getLeft()/* + " : " + String.valueOf(thisPair.getRight())*/);
+            curr.setText((String) thisPair.getLeft() + " : " + String.valueOf(thisPair.getRight()));
             curr.setOnClickListener(this);
             resultsLayout.addView(curr);
             menuItems.add(curr);
