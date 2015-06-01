@@ -5,4 +5,33 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="BackgroundColor1">
+        <item name="android:background">#478E8E</item>
+    </style>
+
+    <style name="BackgroundColor2">
+        <item name="android:background">#85ADAD</item>
+    </style>
+
+    <style name="BackgroundColor3">
+        <item name="android:background">#BAD1D1</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
+    </style>
+
 </resources>

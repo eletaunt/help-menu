@@ -3,17 +3,15 @@
 
     <string name="hello">Welcome to HelpMenu!</string>
     <string name="app_name">HelpMenu</string>
-    <string name="button_text">OCR!</string>
-    <string name="text_hint">OCRed Text will appear here</string>
     <string name="action_settings">Settings</string>
     <string name="output_text">Output</string>
-    <string name="title_activity_display_options">DisplayOptions</string>
+    <string name="title_activity_display_options">Display Options</string>
     <string name="image_dialog_description">Image Preview</string>
     <string name="title_activity_results">Results</string>
     <string name="results">Results will appear here</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_menu_results">MenuResults</string>
-    <string name="title_activity_menu_result_query">MenuResultQuery</string>
+    <string name="title_activity_menu_results">Menu Results</string>
+    <string name="title_activity_menu_result_query">Menu Result Query</string>
 
 </resources>
