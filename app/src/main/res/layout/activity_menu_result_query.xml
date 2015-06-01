@@ -4,26 +4,36 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    style="@style/BackgroundColor1"
     tools:context="edu.uchicago.cs234.spr15.limt.helpmenuapp.MenuResultQuery">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name" />
-
-    <ScrollView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/title_activity_menu_result_query"
+        android:id="@+id/name"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/scrollView">
+        style="@style/TitleStyle" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="20dp"
+        style="@style/BackgroundColor2" >
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/random"
             android:layout_below="@+id/name"
             android:layout_toRightOf="@+id/name"
             android:layout_toEndOf="@+id/name"
-            android:layout_marginTop="20dp" />
+            style="@style/TextViewStyle" />
     </ScrollView>
 
 </RelativeLayout>
