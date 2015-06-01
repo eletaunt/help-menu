@@ -9,6 +9,10 @@ Here are links below for working collaboratively:
 * [CodeShare](http://codeshare.io/yY68N) - For code
 * [Google Slide](https://docs.google.com/presentation/d/1vn_FBWc3WaTStfs7Aj41D0ZsQemE-G5B8xW2dnbY984/edit?usp=sharing) - For presentation
 
+Here are links to our past writeups:
+* [Project Proposal](https://docs.google.com/document/d/1W3ZimpzPykjIOIE-W7bwjfphbVhfIkJ4bvI-KBqvIHc/edit?usp=sharing)
+* [Project Writeup](https://docs.google.com/document/d/1arQo58Bf_xCCFifa-CMESClPDctskhQzk6FiiXTozNU/edit?usp=sharing)
+
 ## Libraries and other things
 
 * [Tesserect](https://code.google.com/p/tesseract-ocr/) - An OCR library
