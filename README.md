@@ -18,6 +18,7 @@ Here are links to our past writeups:
 * [Tesserect](https://code.google.com/p/tesseract-ocr/) - An OCR library
 * [Leptonica](http://leptonica.com/) - An image processing library
 * Some nutritional database
+  * [NDB](http://ndb.nal.usda.gov/ndb/api/doc)
   * [FatSecret](http://platform.fatsecret.com/api/)
   * [Nutritionix](http://www.nutritionix.com/api)
   * [Nutribu](http://developer.nutribu.com/)
@@ -30,3 +31,6 @@ Here are links to our past writeups:
 * [Improving Tesseract](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality)
 * [OCR with Region Select](http://www.codeproject.com/Tips/840623/Android-Character-Recognition)
 * [Our basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHTmd5b2c/view?usp=sharing)
+* [Endpoint API tutorial](http://rominirani.com/2014/08/27/gradle-tutorial-part-10-consuming-endpoints-in-android-code/)
+* [Download image tutorail](http://javatechig.com/android/download-image-using-asynctask-in-android)
+* [Multithreading for performance](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html)
