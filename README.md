@@ -42,3 +42,4 @@ Here are links to our past writeups:
   * [Getty Images with Java](https://github.com/gettyimages/gettyimages-api/blob/master/oauth2.md#client-credentials-flow)
 * Icon
   * [Set icon for Android](http://stackoverflow.com/questions/5350624/set-icon-for-android-application)
+  * [Make app icon](http://makeappicon.com/#)
