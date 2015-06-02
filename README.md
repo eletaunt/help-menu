@@ -26,11 +26,14 @@ Here are links to our past writeups:
   * [Open Food Facts](http://world.openfoodfacts.org/data)
 
 ## Resources
-* [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
-* [Making OCR app with Tesseract](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
-* [Improving Tesseract](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality)
-* [OCR with Region Select](http://www.codeproject.com/Tips/840623/Android-Character-Recognition)
-* [Our basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHTmd5b2c/view?usp=sharing)
-* [Endpoint API tutorial](http://rominirani.com/2014/08/27/gradle-tutorial-part-10-consuming-endpoints-in-android-code/)
-* [Download image tutorail](http://javatechig.com/android/download-image-using-asynctask-in-android)
-* [Multithreading for performance](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html)
+* OCR
+  * [Sample OCR Project](https://github.com/GautamGupta/Simple-Android-OCR)
+  * [Making OCR app with Tesseract](http://gaut.am/making-an-ocr-android-app-using-tesseract/#comment-184181)
+  * [Improving Tesseract](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality)
+  * [OCR with Region Select](http://www.codeproject.com/Tips/840623/Android-Character-Recognition)
+  * [Our basic OCR app](https://drive.google.com/file/d/0Bwf1H0Z5oTjqd3BCczdHTmd5b2c/view?usp=sharing)
+* Image download
+  * [Endpoint API tutorial](http://rominirani.com/2014/08/27/gradle-tutorial-part-10-consuming-endpoints-in-android-code/)
+  * [Download image tutorail](http://javatechig.com/android/download-image-using-asynctask-in-android)
+  * [Multithreading for performance](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html)
+  * [Image Loader Library](https://github.com/nostra13/Android-Universal-Image-Loader)
