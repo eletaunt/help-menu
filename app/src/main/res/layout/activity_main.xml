@@ -33,4 +33,15 @@
         android:layout_marginBottom="65dp"
         android:background="@drawable/focus_layout" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/flash_button"
+        android:layout_gravity="start|bottom"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/flash_layout" />
+
 </FrameLayout>
