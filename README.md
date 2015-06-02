@@ -40,3 +40,5 @@ Here are links to our past writeups:
   * [Getty Images API](https://github.com/gettyimages/gettyimages-api)
   * [Getty Images with Android](http://01siddharth.blogspot.com/2014/08/using-getty-images-api-to-get-images-in.html)
   * [Getty Images with Java](https://github.com/gettyimages/gettyimages-api/blob/master/oauth2.md#client-credentials-flow)
+* Icon
+  * [Set icon for Android](http://stackoverflow.com/questions/5350624/set-icon-for-android-application)
