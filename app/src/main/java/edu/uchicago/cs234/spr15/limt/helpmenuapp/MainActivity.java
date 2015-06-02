@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 
 import android.content.Intent;
@@ -45,9 +46,12 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
 
     Button shutterButton;
     Button focusButton;
+    Button flashButton;
     FocusBoxView focusBox;
     SurfaceView cameraFrame;
     CameraEngine cameraEngine;
+
+    private boolean isFlashOn = false;
 
     AsyncResponse listener;
     TessAsyncEngine asyncTask = new TessAsyncEngine(listener);
@@ -95,12 +99,14 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
         super.onResume();
 
         cameraFrame = (SurfaceView) findViewById(R.id.camera_frame);
-        shutterButton = (Button) findViewById(R.id.shutter_button);
         focusBox = (FocusBoxView) findViewById(R.id.focus_box);
+        shutterButton = (Button) findViewById(R.id.shutter_button);
         focusButton = (Button) findViewById(R.id.focus_button);
+        flashButton = (Button) findViewById(R.id.flash_button);
 
         shutterButton.setOnClickListener(this);
         focusButton.setOnClickListener(this);
+        flashButton.setOnClickListener(this);
 
         SurfaceHolder surfaceHolder = cameraFrame.getHolder();
         surfaceHolder.addCallback(this);
@@ -125,19 +131,36 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
 
     @Override
     public void onClick(View v) {
-        if (v == shutterButton) {
-            if(cameraEngine != null && cameraEngine.isOn()) {
+        if (cameraEngine != null && cameraEngine.isOn()) {
+            if (v == shutterButton) {
                 cameraEngine.takeShot(this, this, this);
             }
-            Intent next = new Intent(this, MenuResults.class);
-            next.putExtra("menuText", recognizedText);
-            //this.startActivity(next);
-        }
-
-        if (v == focusButton) {
-            if(cameraEngine!=null && cameraEngine.isOn()) {
+            if (v == focusButton) {
                 cameraEngine.requestFocus();
             }
+            if (v == flashButton) {
+                if (this.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+                    Camera.Parameters p = cameraEngine.camera.getParameters();
+                    if (isFlashOn) {
+                        p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                        cameraEngine.camera.setParameters(p);
+                        cameraEngine.camera.startPreview();
+                        isFlashOn = false;
+                        Log.d(TAG, "Light turned off");
+                    } else {
+                        p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                        cameraEngine.camera.setParameters(p);
+                        cameraEngine.camera.startPreview();
+                        isFlashOn = true;
+                        Log.d(TAG, "Light turned on");
+                    }
+                } else {
+                    Log.d(TAG, "Camera flash not supported on this device");
+                }
+            }
+        }
+        else {
+            Log.d(TAG, "Camera not supported on this device");
         }
     }
 
@@ -168,7 +191,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
 
     public void processFinish(String result){
         Log.d(TAG, "Entered processFinish");
-        Log.d(TAG, "Output: " + result);
+        Log.d(TAG, "Result: " + result);
 
         // Open MenuResults with OCRed string
         Intent next = new Intent(this, MenuResults.class);
