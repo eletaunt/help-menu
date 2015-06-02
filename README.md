@@ -37,3 +37,6 @@ Here are links to our past writeups:
   * [Download image tutorail](http://javatechig.com/android/download-image-using-asynctask-in-android)
   * [Multithreading for performance](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html)
   * [Image Loader Library](https://github.com/nostra13/Android-Universal-Image-Loader)
+  * [Getty Images API](https://github.com/gettyimages/gettyimages-api)
+  * [Getty Images with Android](http://01siddharth.blogspot.com/2014/08/using-getty-images-api-to-get-images-in.html)
+  * [Getty Images with Java](https://github.com/gettyimages/gettyimages-api/blob/master/oauth2.md#client-credentials-flow)
