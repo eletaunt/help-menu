@@ -31,7 +31,6 @@
         <activity
             android:name=".MenuResults"
             android:label="@string/title_activity_menu_results" >
-
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
 
