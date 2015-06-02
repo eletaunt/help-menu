@@ -134,24 +134,25 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Vi
         if (cameraEngine != null && cameraEngine.isOn()) {
             if (v == shutterButton) {
                 cameraEngine.takeShot(this, this, this);
-            }
-            if (v == focusButton) {
+            } else if (v == focusButton) {
                 cameraEngine.requestFocus();
-            }
-            if (v == flashButton) {
+            } else if (v == flashButton) {
                 if (this.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+                    Button b = (Button) this.findViewById(R.id.flash_button);
                     Camera.Parameters p = cameraEngine.camera.getParameters();
                     if (isFlashOn) {
                         p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                         cameraEngine.camera.setParameters(p);
                         cameraEngine.camera.startPreview();
                         isFlashOn = false;
+                        b.setBackgroundDrawable(getResources().getDrawable(R.drawable.focus_touch));
                         Log.d(TAG, "Light turned off");
                     } else {
                         p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                         cameraEngine.camera.setParameters(p);
                         cameraEngine.camera.startPreview();
                         isFlashOn = true;
+                        b.setBackgroundDrawable(getResources().getDrawable(R.drawable.focus_normal));
                         Log.d(TAG, "Light turned on");
                     }
                 } else {

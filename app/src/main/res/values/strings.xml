@@ -11,7 +11,8 @@
     <string name="results">Results will appear here</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_menu_results">Menu Results</string>
-    <string name="title_activity_menu_result_query">Menu Result Query</string>
+    <string name="title_activity_menu_results">menu results</string>
+    <string name="title_activity_menu_result_query">item details</string>
+    <string name="title_activity_help_menu_loading">HelpMenuLoading</string>
 
 </resources>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="blue">#22ffffff</color>
+
+    <!-- loading page -->
+    <color name="loadingText">#ff875373</color>
+    <color name="loadingBackground">#ffeeeaea</color>
+    <color name="resultsBoxBackground">#119874ad</color>
+    <color name="resultButton">#ffeeeaea</color>
+    <color name="resultButtonPressed">#ffe1e1e1</color>
+
+    <color name="blue">#ffe1e1e1</color>
     <color name="help_button_view">#ffcccccc</color>
     <!-- help button view background color -->
     <color name="help_view">#ff404040</color>

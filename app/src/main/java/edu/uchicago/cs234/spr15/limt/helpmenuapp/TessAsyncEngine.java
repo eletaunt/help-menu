@@ -5,9 +5,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import edu.uchicago.cs234.spr15.limt.helpmenuapp.ImageDialog;
-import edu.uchicago.cs234.spr15.limt.helpmenuapp.Tools;
-
 /**
  * Created by limt on 5/31/2015.
  */
@@ -95,13 +92,6 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         Log.d(TAG, "About to run processFinish");
         listener.processFinish(output);
         Log.d(TAG, "Done running processFinish");
-
-//      ImageDialog.New()
-//          .addBitmap(bmp)
-//          .addTitle(s)
-//          .show(context.getFragmentManager(), TAG);
-//      super.onPostExecute(output);
-
     }
 }
 

@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    style="@style/BackgroundColor1"
+    android:background="@color/loadingBackground"
     tools:context="edu.uchicago.cs234.spr15.limt.helpmenuapp.MenuResults">
 
     <TextView
@@ -15,7 +15,8 @@
         android:id="@+id/MenuResultsTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        style="@style/TitleStyle" />
+        style="@style/TitleStyle"
+        />
 
     <TextView android:text="@string/hello_world"
         android:id="@+id/inputText"
@@ -27,25 +28,26 @@
         android:layout_marginBottom="25dp"
         android:fontFamily="Arial"
         android:textColor="#FFFFFF"
-        style="@style/TextViewStyle" />
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
+        android:background="@color/resultsBoxBackground"
         android:id="@+id/scrollView"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/MenuResultsTitle"
-        android:layout_above="@+id/inputText"
-        style="@style/BackgroundColor2" >
+        android:layout_above="@+id/inputText">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/menuLayout"
-            android:layout_below="@+id/MenuResultsTitle"
-            android:layout_above="@+id/inputText"
-        android:layout_centerHorizontal="true" />
+            />
     </ScrollView>
 
 

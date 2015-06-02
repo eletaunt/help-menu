@@ -1,12 +1,8 @@
 package edu.uchicago.cs234.spr15.limt.helpmenuapp;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.Html;
-import android.util.Log;
 import android.view.Gravity;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -45,6 +41,8 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
                         "&api_key=" +   _apiKey;
 
         String rawJSONString = getRawJSONString(rawURL);
+        if (rawJSONString == null)
+            return null;
 
         JSONObject j = null;
         try
@@ -99,6 +97,8 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
     {
         String result = "";
 
+        TableLayout infoLayout = (TableLayout) _act.findViewById(R.id.table);
+
         try
         {
             URL url = new URL(rawURL);
@@ -115,7 +115,8 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            return null;
+//            e.printStackTrace();
         }
 
         return result;
@@ -132,12 +133,22 @@ public class HelpMenuItem extends AsyncTask<String, Void, JSONObject>
         name.setText(_name);
         try
         {
+            TextView resultNameT = new TextView(_act);
+
+            if (j == null)
+            {
+                resultNameT.setText(Html.fromHtml("<b>Unable to find '" + _name + "'.</b>"));
+                infoLayout.addView(resultNameT);
+                return;
+            }
+
             JSONObject n = new JSONObject(j.getString("report"));
             n = new JSONObject(n.getString("food"));
 
             String resultName = n.getString("name");
-            TextView resultNameT = new TextView(_act);
             resultNameT.setText(Html.fromHtml("<b>" + resultName + "</b>"));
+
+
             infoLayout.addView(resultNameT);
 
             JSONArray a = new JSONArray(n.getString("nutrients"));

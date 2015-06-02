@@ -56,7 +56,6 @@ public class MenuResults extends Activity implements View.OnClickListener
             Button curr = new Button(this);
             Pair thisPair = menuItemPairs.get(i);
             curr.setText((String) thisPair.getLeft());
-            curr.setTextColor(Color.WHITE);
             curr.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
             curr.setOnClickListener(this);
             curr.setBackgroundResource(R.drawable.button_style);
