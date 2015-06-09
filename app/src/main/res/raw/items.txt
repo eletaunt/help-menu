@@ -9,3 +9,46 @@ sandwich
 chicken parmesan
 philly steak sandwich
 caesar salad
+italian beef
+italian sausage
+pizza
+turkey
+grilled shrimp
+pork chops
+chicken wings
+chicken nuggets
+fries
+french fries
+fettuccine alfredo
+grilled chicken
+corned beef
+tartar sauce
+fish sandwich
+veggie burger
+corn dog
+polish sausage
+croissant
+cheesecake
+bread pudding
+sweet potato pie
+salad
+steak
+shrimp
+jerk chicken
+vienna beef
+mac pasta
+mac and cheese
+basil pesto
+pita
+gyro
+chicken sandwich
+mozzarella sticks
+onion rings
+nachos
+chili
+taco
+burrito
+quesadilla
+ground beef taco
+ground beef
+bread

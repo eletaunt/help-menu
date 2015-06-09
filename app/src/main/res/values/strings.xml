@@ -13,6 +13,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_menu_results">menu results</string>
     <string name="title_activity_menu_result_query">item details</string>
-    <string name="title_activity_help_menu_loading">HelpMenuLoading</string>
+    <string name="title_activity_help_menu_loading">HelpMenu</string>
 
 </resources>

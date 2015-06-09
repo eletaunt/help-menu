@@ -13,11 +13,13 @@ Here are links to our past writeups:
 * [Project Proposal](https://docs.google.com/document/d/1W3ZimpzPykjIOIE-W7bwjfphbVhfIkJ4bvI-KBqvIHc/edit?usp=sharing)
 * [Project Writeup](https://docs.google.com/document/d/1arQo58Bf_xCCFifa-CMESClPDctskhQzk6FiiXTozNU/edit?usp=sharing)
 
+To update the list of strings that HelpMenu compares the OCR output to, edit [items.txt](https://github.com/dyxh/helpmenu/blob/master/app/src/main/res/raw/items.txt).
+
 ## Libraries and other things
 
 * [Tesserect](https://code.google.com/p/tesseract-ocr/) - An OCR library
 * [Leptonica](http://leptonica.com/) - An image processing library
-* Some nutritional database
+* Food/nutritional databases
   * [NDB](http://ndb.nal.usda.gov/ndb/api/doc)
   * [FatSecret](http://platform.fatsecret.com/api/)
   * [Nutritionix](http://www.nutritionix.com/api)
